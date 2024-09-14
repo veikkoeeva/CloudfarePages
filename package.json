@@ -1,0 +1,24 @@
+{
+  "name": "yellow-truth-f2f0",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler pages publish dist",
+    "dev": "wrangler pages dev dist --live-reload",
+    "dev:esbuild": "esbuild --bundle src/index.ts --format=esm --watch --outfile=dist/_worker.js",
+    "build": "esbuild --bundle src/index.ts --format=esm --outfile=dist/_worker.js",
+    "start": "wrangler pages dev dist",
+    "test": "vitest",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.2",
+    "@cloudflare/workers-types": "^4.20240909.0",
+    "typescript": "^5.6.2",
+    "vitest": "2.0.5",
+    "wrangler": "^3.78.2"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.4"
+  }
+}
